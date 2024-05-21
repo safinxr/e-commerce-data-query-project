@@ -1,8 +1,8 @@
 import app from "./app";
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 import { db_url, port } from "./app/config";
 
-
+const a = "a";
 
 async function main() {
   await mongoose.connect(db_url as string);
@@ -12,5 +12,4 @@ async function main() {
   });
 }
 
-
-main()
+main();
