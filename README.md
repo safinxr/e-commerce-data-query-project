@@ -5,6 +5,9 @@ This project is an e-commerce data query API built with Nodejs, Express Mongoose
 
 
 - [Live Server Link](https://e-commerce-data-query-project.vercel.app/)
+- [post:/api/products/create-product](https://e-commerce-data-query-project.vercel.app/api/products/create-porduct)
+- [/api/products](https://e-commerce-data-query-project.vercel.app/api/products)
+- [/api/products/:productId](https://e-commerce-data-query-project.vercel.app/api/products/:664dcc6dbc9e0cf5d5993297)
 
 ## Installation
 
