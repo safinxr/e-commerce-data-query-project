@@ -6,7 +6,7 @@ const variantSchemaValidation = z.object({
 });
 
 const inventorySchemaValidation = z.object({
-  quantity: z.number().min(0, "Quantity must be a positive number"),
+  quantity: z.number().min(0, "Quantity must be a positive number (Zod)"),
   inStock: z.boolean(),
 });
 
@@ -19,6 +19,5 @@ const productSchemaValidation = z.object({
   variants: z.array(variantSchemaValidation).min(1, "variants cannot be empty"),
   inventory: inventorySchemaValidation,
 });
-
 
 export default productSchemaValidation;

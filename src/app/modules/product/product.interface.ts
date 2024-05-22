@@ -4,7 +4,7 @@ export type Variant = {
 };
 
 export type Inventory = {
-  quantity: number;
+  quantity?: number;
   inStock: boolean;
 };
 
@@ -15,5 +15,5 @@ export type Product = {
   category: string;
   tags: string[];
   variants: Variant[];
-  inventory: Inventory;
+  inventory?: Inventory;
 };
