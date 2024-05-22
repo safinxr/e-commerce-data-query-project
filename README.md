@@ -5,15 +5,17 @@ This project is an e-commerce data query API built with Nodejs, Express Mongoose
 
 
 - [Live Server Link](https://e-commerce-data-query-project.vercel.app/)
-- [POST: /api/products/create-product](https://e-commerce-data-query-project.vercel.app/api/products/create-product)
 - [GET; /api/products](https://e-commerce-data-query-project.vercel.app/api/products)
 - [GET; /api/products?searchTerm=iphone](https://e-commerce-data-query-project.vercel.app/api/products?searchTerm=iphone)
 - [GET; /api/products/:productId](https://e-commerce-data-query-project.vercel.app/api/products/:664dcc6dbc9e0cf5d5993297)
-- [PUT; /api/products/:productId](https://e-commerce-data-query-project.vercel.app/api/products/:664dcc6dbc9e0cf5d5993297)
-- [DELETE; /api/products/:productId](https://e-commerce-data-query-project.vercel.app/api/products/:664dcc6dbc9e0cf5d5993297)
-- [POST; /api/orders/create-order](https://e-commerce-data-query-project.vercel.app/api/orders/create-order)
 - [GET; /api/orders](https://e-commerce-data-query-project.vercel.app/api/orders)
 - [GET; /api/orders?email=safin@gmail.com](https://e-commerce-data-query-project.vercel.app/api/orders?email=safin@gmail.com)
+- [POST: /api/products/create-product](https://e-commerce-data-query-project.vercel.app/api/products/create-product)
+- [POST; /api/orders/create-order](https://e-commerce-data-query-project.vercel.app/api/orders/create-order)
+- [PUT; /api/products/:productId](https://e-commerce-data-query-project.vercel.app/api/products/:664dcc6dbc9e0cf5d5993297)
+- [DELETE; /api/products/:productId](https://e-commerce-data-query-project.vercel.app/api/products/:664dcc6dbc9e0cf5d5993297)
+
+
 
 ## Installation
 
