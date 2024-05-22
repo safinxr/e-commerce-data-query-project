@@ -17,7 +17,7 @@ const createdProductIntoDB = async (product: Product) => {
         $set: {
           "inventory.quantity": quantityInDB + quantityInNewData,
         },
-      },
+      }
     );
     return {
       data: updateQuantity,
@@ -33,12 +33,25 @@ const createdProductIntoDB = async (product: Product) => {
 };
 
 // Find all data
-const findAllData = async () => {
-  const result = await ProductModule.find();
-  return {
-    data: result,
-    message: "All product found successfully",
-  };
+const findAllData = async (searchTerm: string) => {
+  if (searchTerm !== "non") {
+    const result = await ProductModule.find({
+      $or: [
+        { name: { $regex: searchTerm, $options: "i" } },
+        { tags: { $regex: searchTerm, $options: "i" } },
+      ],
+    });
+    return {
+      data: result,
+      message: "product find by searchTerm",
+    };
+  } else {
+    const result = await ProductModule.find();
+    return {
+      data: result,
+      message: "All product found successfully",
+    };
+  }
 };
 
 // Find product by id
@@ -54,7 +67,7 @@ const findOneData = async (productId: string) => {
 const updateOneData = async (productId: string, product: Product) => {
   const UpdatedResult = await ProductModule.updateOne(
     { _id: productId },
-    { $set: product },
+    { $set: product }
   );
   return {
     data: UpdatedResult,
@@ -64,7 +77,7 @@ const updateOneData = async (productId: string, product: Product) => {
 
 // Delete product by id
 const deleteOneData = async (productId: string) => {
-  const result = await ProductModule.deleteOne({_id:productId})
+  const result = await ProductModule.deleteOne({ _id: productId });
   return {
     data: result,
     message: "product delete by id successfully",

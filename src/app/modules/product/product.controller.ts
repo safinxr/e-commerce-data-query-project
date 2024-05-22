@@ -20,14 +20,25 @@ const createProduct = async (req: Request, res: Response) => {
   }
 };
 
-// Find all data
+// Find all data $ search data
 const findAllProduct = async (req: Request, res: Response) => {
   try {
-    const result = await productServices.findAllData();
-    if (!result.data) {
-      throw new Error();
+    if (req.query.searchTerm) {
+      const searchTerm = req.query.searchTerm;
+      const result = await productServices.findAllData(searchTerm as string);
+
+      if (!result.data.length) {
+        throw new Error();
+      }
+      res.status(200).json(success(result.message, result.data));
+    }else{
+      const result = await productServices.findAllData("non");
+      if (!result.data) {
+        throw new Error();
+      }
+      res.status(200).json(success(result.message, result.data));
     }
-    res.status(200).json(success(result.message, result.data));
+  
   } catch (err) {
     res
       .status(500)
@@ -52,13 +63,13 @@ const findOneProduct = async (req: Request, res: Response) => {
 };
 
 // Update product by id
-const UpdateOneProduct = async (req: Request, res: Response) => {
+const updateOneProduct = async (req: Request, res: Response) => {
   try {
     const productId = req.params.productId;
     const productData = req.body;
     const updateData = await productServices.updateOneData(
       productId,
-      productData,
+      productData
     );
     if (!updateData.data.acknowledged) {
       throw new Error();
@@ -76,7 +87,7 @@ const UpdateOneProduct = async (req: Request, res: Response) => {
 };
 
 // Delete product by id
-const DeleteOneProduct = async (req: Request, res: Response) => {
+const deleteOneProduct = async (req: Request, res: Response) => {
   try {
     const productId = req.params.productId;
     const result = await productServices.deleteOneData(productId);
@@ -95,6 +106,6 @@ export const productController = {
   createProduct,
   findAllProduct,
   findOneProduct,
-  UpdateOneProduct,
-  DeleteOneProduct,
+  updateOneProduct,
+  deleteOneProduct,
 };
