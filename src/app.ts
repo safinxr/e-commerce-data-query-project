@@ -23,10 +23,8 @@ app.get("/", async (req: Request, res: Response) => {
   }
 });
 
-
-
-app.all("*", (req: Request, res: Response)=>{
+app.all("*", (req: Request, res: Response) => {
   res.status(400).json(error("Route is not found", {}));
-})
+});
 
 export default app;

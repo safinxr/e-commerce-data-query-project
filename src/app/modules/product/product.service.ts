@@ -17,7 +17,7 @@ const createdProductIntoDB = async (product: Product) => {
         $set: {
           "inventory.quantity": quantityInDB + quantityInNewData,
         },
-      }
+      },
     );
     return {
       data: updateQuantity,
@@ -67,7 +67,7 @@ const findOneData = async (productId: string) => {
 const updateOneData = async (productId: string, product: Product) => {
   const UpdatedResult = await ProductModule.updateOne(
     { _id: productId },
-    { $set: product }
+    { $set: product },
   );
   return {
     data: UpdatedResult,

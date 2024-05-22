@@ -31,14 +31,13 @@ const findAllProduct = async (req: Request, res: Response) => {
         throw new Error();
       }
       res.status(200).json(success(result.message, result.data));
-    }else{
+    } else {
       const result = await productServices.findAllData("non");
       if (!result.data) {
         throw new Error();
       }
       res.status(200).json(success(result.message, result.data));
     }
-  
   } catch (err) {
     res
       .status(500)
@@ -69,7 +68,7 @@ const updateOneProduct = async (req: Request, res: Response) => {
     const productData = req.body;
     const updateData = await productServices.updateOneData(
       productId,
-      productData
+      productData,
     );
     if (!updateData.data.acknowledged) {
       throw new Error();
