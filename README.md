@@ -1,10 +1,10 @@
 
 # E-Commerce Data Query Project
 
-This project is an e-commerce data query api built with nodejs, Express Mongoose, TypeScript and for data validation zod has been used.
+This project is an e-commerce data query API built with Nodejs, Express Mongoose, and TypeScript and for data validation, zod has been used.
 
 
-- [Live Server Link](https://www.github.com/octokatherine)
+- [Live Server Link](https://e-commerce-data-query-project.vercel.app/)
 
 ## Installation
 
