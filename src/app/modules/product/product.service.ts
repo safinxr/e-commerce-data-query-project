@@ -38,8 +38,16 @@ const findAllData = async () =>{
     message:"All product found successfully"
   }
 }
+const findOneData = async (productId:string) =>{
+  const result = await ProductModule.findOne({_id: productId});
+  return {
+    data:result,
+    message:"product found by id successfully"
+  }
+}
 
 export const productServices = {
   createdProductIntoDB,
   findAllData,
+  findOneData,
 };
