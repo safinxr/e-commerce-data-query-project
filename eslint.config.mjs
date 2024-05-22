@@ -4,7 +4,7 @@ import tseslint from "typescript-eslint";
 
 export default [
   {
-    ignores: ["**/node_modules/", ".dist/"],
+    ignores: ["**/node_modules/", ".dist/", ".env"],
     languageOptions: {
       globals: {
         ...globals.browser,

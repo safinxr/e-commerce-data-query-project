@@ -1,6 +1,7 @@
 import { Product } from "./product.interface";
 import { ProductModule } from "./product.model";
 
+// Create Product into database
 const createdProductIntoDB = async (product: Product) => {
   const docQuery = { ...product };
   delete docQuery.inventory;
@@ -31,6 +32,7 @@ const createdProductIntoDB = async (product: Product) => {
   };
 };
 
+// Find all data
 const findAllData = async () =>{
   const result =await ProductModule.find()
   return {
@@ -38,6 +40,8 @@ const findAllData = async () =>{
     message:"All product found successfully"
   }
 }
+
+// Find product by id
 const findOneData = async (productId:string) =>{
   const result = await ProductModule.findOne({_id: productId});
   return {
@@ -46,8 +50,22 @@ const findOneData = async (productId:string) =>{
   }
 }
 
+//Update product by id
+const updateOneData = async (productId:string, product:Product) =>{
+  const UpdatedResult = await ProductModule.updateOne(
+    {_id:productId},
+    {$set:product}
+  )
+
+  return {
+    data:UpdatedResult,
+    message:"product update by id successfully"
+  }
+}
+
 export const productServices = {
   createdProductIntoDB,
   findAllData,
   findOneData,
+  updateOneData,
 };
