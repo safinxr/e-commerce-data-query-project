@@ -1,4 +1,4 @@
-const success = (message:string, data:unknown) =>{
+const success = (message:string, data:any) =>{
     return {
       success: true,
       message: message,
@@ -6,7 +6,7 @@ const success = (message:string, data:unknown) =>{
     };
 }
 
-const error = (message:any, err:any) =>{
+const error = (message:string, err:any) =>{
     return {
       success: false,
       message: message,
