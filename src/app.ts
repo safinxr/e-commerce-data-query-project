@@ -5,6 +5,7 @@ import {
   error,
   success,
 } from "./app/modules/product/product.config/try.catch.res";
+import { orderRoute } from "./app/modules/order/order.route";
 const app: Application = express();
 
 // parsers
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/products", productRoute);
+app.use("/api/orders", orderRoute);
 
 app.get("/", async (req: Request, res: Response) => {
   try {
