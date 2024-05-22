@@ -31,6 +31,12 @@ const createdProductIntoDB = async (product: Product) => {
   };
 };
 
+const findAllData = async () =>{
+  const result =await ProductModule.find()
+  return result
+}
+
 export const productServices = {
   createdProductIntoDB,
+  findAllData,
 };

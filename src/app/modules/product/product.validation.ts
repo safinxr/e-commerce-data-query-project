@@ -16,7 +16,7 @@ const productSchemaValidation = z.object({
   price: z.number().positive("Price must be a positive number"),
   category: z.string().min(1, "Category is required"),
   tags: z.array(z.string().min(1, "Tag cannot be empty")),
-  variants: z.array(variantSchemaValidation).min(1, "variants cannot be empty"),
+  variants: z.array(variantSchemaValidation).min(2, "variants At least need 2 types"),
   inventory: inventorySchemaValidation,
 });
 
