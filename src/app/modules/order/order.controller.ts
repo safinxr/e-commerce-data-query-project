@@ -8,7 +8,13 @@ const createOrderController = async (req: Request, res: Response) => {
     const orderInfo = req.body;
     const zodValidation = zodOrderSchema.parse(orderInfo);
     const orderResult = await orderService.createNewOrder(zodValidation);
-    res.status(200).json(success(orderResult.message, orderResult.data));
+    if (orderResult === "x") {
+      res
+        .status(500)
+        .json(error("Insufficient quantity available in inventory", {}));
+    } else {
+      res.status(200).json(success(orderResult.message, orderResult.data));
+    }
   } catch (err) {
     res
       .status(500)
